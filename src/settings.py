@@ -13,58 +13,92 @@ from dataset_tools.templates import (
 ##################################
 # * Before uploading to instance #
 ##################################
-PROJECT_NAME: str = None
-PROJECT_NAME_FULL: str = None
+PROJECT_NAME: str = "FloodNet 2021: Track 2"
+PROJECT_NAME_FULL: str = "FloodNet 2021: A High Resolution Aerial Imagery Dataset for Post Flood Scene Understanding (Track 2)"
 HIDE_DATASET = True  # set False when 100% sure about repo quality
 
 ##################################
 # * After uploading to instance ##
 ##################################
-LICENSE: License = None
-APPLICATIONS: List[Union[Industry, Domain, Research]] = None
-CATEGORY: Category = None
+LICENSE: License = License.CC_BY_SA_4_0(
+    source_url="https://competitions.codalab.org/competitions/30320#learn_the_details-terms_and_conditions"
+)
+APPLICATIONS: List[Union[Industry, Domain, Research]] = [
+    Industry.SearchAndRescue(),
+    Industry.Environmental(),
+]
+CATEGORY: Category = Category.Aerial(
+    extra=[Category.Safety(), Category.Environmental(), Category.Drones()]
+)
 
-CV_TASKS: List[CVTask] = None
-ANNOTATION_TYPES: List[AnnotationType] = None
+CV_TASKS: List[CVTask] = [CVTask.Identification()]
+ANNOTATION_TYPES: List[AnnotationType] = []
 
-RELEASE_DATE: Optional[str] = None  # e.g. "YYYY-MM-DD"
+RELEASE_DATE: Optional[str] = "2020-12-05"  # e.g. "YYYY-MM-DD"
 if RELEASE_DATE is None:
     RELEASE_YEAR: int = None
 
-HOMEPAGE_URL: str = None
+HOMEPAGE_URL: str = "http://www.classic.grss-ieee.org/earthvision2021/challenge.html"
 # e.g. "https://some.com/dataset/homepage"
 
-PREVIEW_IMAGE_ID: int = None
+PREVIEW_IMAGE_ID: int = 8507228
 # This should be filled AFTER uploading images to instance, just ID of any image.
 
-GITHUB_URL: str = None
+GITHUB_URL: str = "https://github.com/dataset-ninja/floodnet"
 # URL to GitHub repo on dataset ninja (e.g. "https://github.com/dataset-ninja/some-dataset")
 
 ##################################
 ### * Optional after uploading ###
 ##################################
-DOWNLOAD_ORIGINAL_URL: Optional[Union[str, dict]] = None
+DOWNLOAD_ORIGINAL_URL: Optional[
+    Union[str, dict]
+] = "https://drive.google.com/drive/folders/1g1r419bWBe4GEF-7si5DqWCjxiC8ErnY"
 # Optional link for downloading original dataset (e.g. "https://some.com/dataset/download")
 
 CLASS2COLOR: Optional[Dict[str, List[str]]] = None
 # If specific colors for classes are needed, fill this dict (e.g. {"class1": [255, 0, 0], "class2": [0, 255, 0]})
 
-# If you have more than the one paper, put the most relatable link as the first element of the list
-# Use dict key to specify name for a button
-PAPER: Optional[Union[str, List[str], Dict[str, str]]] = None
+PAPER: Optional[Union[str, List[str], Dict[str, str]]] = "https://arxiv.org/abs/2012.02951"
 BLOGPOST: Optional[Union[str, List[str], Dict[str, str]]] = None
-REPOSITORY: Optional[Union[str, List[str], Dict[str, str]]] = {"GitHub":"some_link_to_repo_if_exists"}
+REPOSITORY: Optional[Union[str, List[str], Dict[str, str]]] = {
+    "GitHub": "https://github.com/BinaLab/FloodNet-Challenge-EARTHVISION2021#floodnet-dataset"
+}
 
-CITATION_URL: Optional[str] = None
-AUTHORS: Optional[List[str]] = None
-AUTHORS_CONTACTS: Optional[List[str]] = None
+CITATION_URL: Optional[
+    str
+] = "https://github.com/BinaLab/FloodNet-Challenge-EARTHVISION2021#paper-link"
+AUTHORS: Optional[List[str]] = [
+    "Maryam Rahnemoonfar",
+    "Tashnim Chowdhury",
+    "Argho Sarkar",
+    "Debvrat Varshney",
+    "Masoud Yari",
+    "Robin Murphy",
+]
+AUTHORS_CONTACTS: Optional[List[str]] = [
+    "maryam@umbc.edu",
+    "tchowdhury@umbc.edu",
+    "asarkar2@umbc.edu",
+    "dvarshney@umbc.edu",
+    "yari@umbc.edu",
+    "murphy@cse.tamu.edu",
+]
 
-ORGANIZATION_NAME: Optional[Union[str, List[str]]] = None
-ORGANIZATION_URL: Optional[Union[str, List[str]]] = None
+ORGANIZATION_NAME: Optional[Union[str, List[str]]] = [
+    "UMBC, USA",
+    "Texas A&M University",
+    "Dewberry, USA",
+]
+ORGANIZATION_URL: Optional[Union[str, List[str]]] = [
+    "https://umbc.edu/",
+    "https://www.tamu.edu/",
+    "https://www.dewberry.com/",
+]
 
-# Set '__PRETEXT__' or '__POSTTEXT__' as a key with string value to add custom text. e.g. SLYTAGSPLIT = {'__POSTTEXT__':'some text}
-SLYTAGSPLIT: Optional[Dict[str, Union[List[str], str]]] = None
-TAGS: Optional[List[str]] = None
+SLYTAGSPLIT: Optional[Dict[str, List[str]]] = {
+    "__PRETEXT__": "Every image has its ***question*** tag"
+}
+TAGS: List[str] = None
 
 
 SECTION_EXPLORE_CUSTOM_DATASETS: Optional[List[str]] = None
